@@ -20,5 +20,9 @@ Participantes:
 - Jorge Luis Sarmiento Herrera
 - Gustavo Alberto Suarez Pinto
 
+Contenido:
+
+- source: Contiene el código fuente del programa
+- docs: contiene las documentación, formularios donde se registra la información del proceso de TSPi
 
 Especialización en Construcción de Software (ECOS) 2014, Universidad de los Andes
