@@ -11,5 +11,14 @@ Tipo de aplicación:
 
 - Stand Alone
 
+Participantes:
+
+- Miguel Angel Dominguez Niño
+- Nestor Andres Cabezas Garcia
+- Gilberto Ramón Mangones
+- Diego Felipe Sanchez Gamboa
+- Jorge Luis Sarmiento Herrera
+- Gustavo Alberto Suarez Pinto
+
 
 Especialización en Construcción de Software (ECOS) 2014, Universidad de los Andes
