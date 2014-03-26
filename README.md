@@ -19,6 +19,7 @@ Participantes:
 - Diego Felipe Sanchez Gamboa
 - Jorge Luis Sarmiento Herrera
 - Gustavo Alberto Suarez Pinto
+- Juanita la del Barrio
 
 Contenido:
 
