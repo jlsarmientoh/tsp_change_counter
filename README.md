@@ -27,10 +27,4 @@ Contenido:
 
 Especialización en Construcción de Software (ECOS) 2014, Universidad de los Andes
 Trabajamos sobre la rama de ciclo 1
-<<<<<<< HEAD
 sample gilbert
-=======
-
-
-Prueba sincronizacion Miguel
->>>>>>> 2bb3e5298596352001f252c7d599f78a8ea6a2b3
