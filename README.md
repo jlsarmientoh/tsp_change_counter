@@ -27,4 +27,6 @@ Contenido:
 
 Especialización en Construcción de Software (ECOS) 2014, Universidad de los Andes
 
-Editado por AC 
+Editado por AC
+
+Editado por DSanchez 
