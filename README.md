@@ -26,7 +26,5 @@ Contenido:
 - docs: contiene las documentación, formularios donde se registra la información del proceso de TSPi
 
 Especialización en Construcción de Software (ECOS) 2014, Universidad de los Andes
-
-Editado por AC
-
-Editado por DSanchez 
+Trabajamos sobre la rama de ciclo 1
+Prueba gilbert
