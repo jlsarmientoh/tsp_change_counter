@@ -1,10 +1,10 @@
 //*****************************************************************
 // Program Assignment:  01                                        
-// Name: Gustavo Alberto Suárez Pinto                             
+// Name: Gustavo Alberto Suï¿½rez Pinto                             
 // Date: 05/04/2014                                               
 // Description: Esta clase se encarga de buscarlos archivos fuentes, 
 // 				compara los archivos de las dos rutas, los que son iguales,   
-//				los carga en memoria y los envía a comparar.                                 
+//				los carga en memoria y los envï¿½a a comparar.                                 
 //*****************************************************************
 // Listing Contents                                               
 //                                                                
@@ -29,15 +29,15 @@ public class ManejoArchivos
 	ArrayList<ArrayList> salida = new ArrayList<ArrayList>();
 
 	/**
-	 * Este método se encarga de buscar los archivos .java de forma recursiva que se encuentren en la 
+	 * Este mï¿½todo se encarga de buscar los archivos .java de forma recursiva que se encuentren en la 
 	 * ruta que se le especifique.
 	 * @param p Corresponde a una ruta en donde se desee buscar archivos .java
 	 * @return Retorna una lista con la ruta y el nombre de cada archivo encontrado en la ruta especificada.
 	 */
-	public ArrayList<archivo> buscarArchivos(String p)
+	public ArrayList<Archivo> buscarArchivos(String p)
 	{	
-		// Se crea el arreglo que tendrá los archivos.
-		ArrayList<archivo> archivos = new ArrayList<Archivo>();
+		// Se crea el arreglo que tendrï¿½ los archivos.
+		ArrayList<Archivo> archivos = new ArrayList<Archivo>();
 
 		// Creamos el arreglo en el cual vamos a almacenar los archivos que encontremos en la ruta especificada.
 		Archivo myArchivo;
@@ -54,10 +54,10 @@ public class ManejoArchivos
 		// Sacamos un listado de todos los elementos que se encuentran en la ruta.
 		File[] files = path.listFiles();
 
-		// Obtenemos la longitud de caracteres de la ruta que se le pasa como parametro al método
+		// Obtenemos la longitud de caracteres de la ruta que se le pasa como parametro al mï¿½todo
 		int posicion = p.length() + 1;
 
-		// Comenzamos a iterar sobre la lista de elementos encontrados en la ruta que se le paso al método.
+		// Comenzamos a iterar sobre la lista de elementos encontrados en la ruta que se le paso al mï¿½todo.
 		//@dsanchez
 		//se agrega if para valida cuando la lista llega vacia
 		if(files!=null)
@@ -69,7 +69,7 @@ public class ManejoArchivos
 				// Si el elemento es de tipo carpeta
 				if(f.isDirectory())
 				{
-					// De forma recursiva se llama al mismo método pero esta vez con la ruta del elemento de tipo carpeta
+					// De forma recursiva se llama al mismo mï¿½todo pero esta vez con la ruta del elemento de tipo carpeta
 					ArrayList<Archivo> aux = buscarArchivos(f.getAbsolutePath());
 					for(int i = 0; i < aux.size(); i++)
 					{
@@ -84,8 +84,8 @@ public class ManejoArchivos
 					// Buscamos solo aquellos elementos de tipo archivo que sean de java
 					if(rutaArchivo.endsWith(".java"))
 					{
-						// Obtenemos sólo el nombre del Archivo, sin la ruta en la cual se encuentra.
-						Archivo = rutaArchivo.substring(posicion);					
+						// Obtenemos sï¿½lo el nombre del Archivo, sin la ruta en la cual se encuentra.
+						archivo = rutaArchivo.substring(posicion);					
 
 						// Almacenamos la ruta y el nombre del archivo en el arreglo de archivos
 						myArchivo.setRuta(rutaArchivo);
@@ -105,8 +105,8 @@ public class ManejoArchivos
 	}
 
 	/**
-	 * Este método compara dos listas de archivos, buscando aquellos archivos que se encuentren en las dos
-	 * listas, posteriormente envía cada pareja a comparar su contenido.
+	 * Este mï¿½todo compara dos listas de archivos, buscando aquellos archivos que se encuentren en las dos
+	 * listas, posteriormente envï¿½a cada pareja a comparar su contenido.
 	 * @param archivosProgOri Corresponde a la lista de archivos que pertenecen al programa original.
 	 * @param archivosProgMod Corresponde a la lista de archivos que pertenecen al programa modificado.
 	 * @return Retorna una lista de lineas de todas las parejas que fueron comparadas por su contenido.
@@ -142,10 +142,10 @@ public class ManejoArchivos
 	}
 
 	/**
-	 * Este método se encarga de recibir un archivo y cargar su contenido en un mapa de java.
+	 * Este mï¿½todo se encarga de recibir un archivo y cargar su contenido en un mapa de java.
 	 * @param r Corresponde a la ruta en donde se encuentra el archivo que tiene que cargar en el 
 	 * mapa de java.
-	 * @return Retorna el mapa una vez cargó el contenido del archivo en él.
+	 * @return Retorna el mapa una vez cargï¿½ el contenido del archivo en ï¿½l.
 	 */
 	public Map<Integer, String> cargarContenido(String r)
 	{
@@ -173,8 +173,8 @@ public class ManejoArchivos
 	}
 
 	/**
-	 * Este método se encarga de iniciar la comparación de los fuentes de las dos versiones del programa
-	 * y adiciona el resultado de la comparacion de cada pareja de fuentes en una lista de listas de líneas.
+	 * Este mï¿½todo se encarga de iniciar la comparaciï¿½n de los fuentes de las dos versiones del programa
+	 * y adiciona el resultado de la comparacion de cada pareja de fuentes en una lista de listas de lï¿½neas.
 	 * @param rutaProgOriginal Corresponde a la ruta del programa original
 	 * @param rutaProgModificado Corresponde a la ruta del programa modificado
 	 */
@@ -185,8 +185,8 @@ public class ManejoArchivos
 	}	
 
 	/**
-	 * Este método retorna la lista de listas de líneas
-	 * @return Lista de Listas de líneas
+	 * Este mï¿½todo retorna la lista de listas de lï¿½neas
+	 * @return Lista de Listas de lï¿½neas
 	 */
 	public ArrayList<ArrayList> getSalida()
 	{

@@ -1,10 +1,10 @@
 //*****************************************************************
 // Program Assignment:  01                                        
-// Name: Gustavo Alberto Suárez Pinto                             
+// Name: Gustavo Alberto Suarez Pinto                             
 // Date: 05/04/2014                                               
 // Description: Esta clase sirve de interfaz para el programa comparador 
 // 				solicitando las rutas de las dos versiones del programa a    
-//				comparar y mostrando el resultado de dicha comparación.                                 
+//				comparar y mostrando el resultado de dicha comparaciÃ³n.                                 
 //*****************************************************************
 // Listing Contents                                               
 //                                                                
@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 
 public class UseComparador 
 {
-	/**Esté método sirve de interfaz para el programa comparador
+	/**Este mÃ©todo sirve de interfaz para el programa comparador
 	 * @param args
 	 */
 	public static void main(String[] args) 
@@ -72,10 +72,10 @@ public class UseComparador
 	
 		
 		/*
-		// Corresponde a la ruta donde se encuentra la versión NO modificada del programa a comparar
+		// Corresponde a la ruta donde se encuentra la versiÃ³n NO modificada del programa a comparar
 		String rutaProgOriginal =  JOptionPane.showInputDialog("Digite la ruta del programa sin modificar");
 
-		// Corresponde a la ruta donde se encuentra la versión modificada del programa a comparar 		
+		// Corresponde a la ruta donde se encuentra la versiÃ³n modificada del programa a comparar 		
 		String rutaProgModificado =  JOptionPane.showInputDialog("Digite la ruta del programa sin modificar");*/
 
 		ManejoArchivos myManejoArchivos = new ManejoArchivos();
@@ -88,16 +88,16 @@ public class UseComparador
 	}
 
 	/**
-	 * Este método se encarga de visualizar el contenido de la lista de listas de líneas
-	 * @param salida Corresponde a la lista de listas de líneas.
+	 * Este mÃ©todo se encarga de visualizar el contenido de la lista de listas de lÃ­neas
+	 * @param salida Corresponde a la lista de listas de lÃ­neas.
 	 */
 	public static void generarSalida(ArrayList salida)
 	{
 		ArrayList<ArrayList> listaDeListas = salida;
 
-		// Imprimimos primero las líneas adicionadas
+		// Imprimimos primero las lÃ­neas adicionadas
 		System.out.println("****************************************************");
-		System.out.println("Estas son las líneas adicionadas: ");
+		System.out.println("Estas son las lï¿½neas adicionadas: ");
 		for(int i = 0; i < listaDeListas.size(); i++)
 		{
 			ArrayList<Linea> myListOfLines = listaDeListas.get(i);
@@ -113,9 +113,9 @@ public class UseComparador
 		}
 		System.out.println("****************************************************");
 
-		// Ahora imprimimos las líneas eliminadas
+		// Ahora imprimimos las lÃ­neas eliminadas
 		System.out.println("****************************************************");
-		System.out.println("Estas son las líneas eliminadas: ");
+		System.out.println("Estas son las lÃ­neas eliminadas: ");
 		for(int i = 0; i < listaDeListas.size(); i++)
 		{
 			ArrayList<Linea> myListOfLines = listaDeListas.get(i);

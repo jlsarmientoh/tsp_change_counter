@@ -160,7 +160,7 @@ public class Diff
 
 	public static void main(String args[])
 	{
-		diff d = new diff();
+		Diff d = new Diff();
 		d.comparar(new HashMap<String,Object>(), new HashMap<String,Object>());
 	}
 
