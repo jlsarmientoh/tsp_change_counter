@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class manejoArchivos 
+public class ManejoArchivos 
 {
 	ArrayList<ArrayList> salida = new ArrayList<ArrayList>();
 
@@ -37,10 +37,10 @@ public class manejoArchivos
 	public ArrayList<archivo> buscarArchivos(String p)
 	{	
 		// Se crea el arreglo que tendrá los archivos.
-		ArrayList<archivo> archivos = new ArrayList<archivo>();
+		ArrayList<archivo> archivos = new ArrayList<Archivo>();
 
 		// Creamos el arreglo en el cual vamos a almacenar los archivos que encontremos en la ruta especificada.
-		archivo myArchivo;
+		Archivo myArchivo;
 
 		// String que contrandra el valor de la ruta en la cual se encuentran los fuentes del programa.
 		String rutaArchivo = "";
@@ -64,13 +64,13 @@ public class manejoArchivos
 		{
 			for(File f : files)
 			{
-				myArchivo = new archivo();
+				myArchivo = new Archivo();
 
 				// Si el elemento es de tipo carpeta
 				if(f.isDirectory())
 				{
 					// De forma recursiva se llama al mismo método pero esta vez con la ruta del elemento de tipo carpeta
-					ArrayList<archivo> aux = buscarArchivos(f.getAbsolutePath());
+					ArrayList<Archivo> aux = buscarArchivos(f.getAbsolutePath());
 					for(int i = 0; i < aux.size(); i++)
 					{
 						archivos.add(aux.get(0));
@@ -84,8 +84,8 @@ public class manejoArchivos
 					// Buscamos solo aquellos elementos de tipo archivo que sean de java
 					if(rutaArchivo.endsWith(".java"))
 					{
-						// Obtenemos sólo el nombre del archivo, sin la ruta en la cual se encuentra.
-						archivo = rutaArchivo.substring(posicion);					
+						// Obtenemos sólo el nombre del Archivo, sin la ruta en la cual se encuentra.
+						Archivo = rutaArchivo.substring(posicion);					
 
 						// Almacenamos la ruta y el nombre del archivo en el arreglo de archivos
 						myArchivo.setRuta(rutaArchivo);
@@ -111,25 +111,25 @@ public class manejoArchivos
 	 * @param archivosProgMod Corresponde a la lista de archivos que pertenecen al programa modificado.
 	 * @return Retorna una lista de lineas de todas las parejas que fueron comparadas por su contenido.
 	 */
-	public void compararListas(ArrayList<archivo> archivosProgOri, ArrayList<archivo> archivosProgMod)
+	public void compararListas(ArrayList<Archivo> archivosProgOri, ArrayList<Archivo> archivosProgMod)
 	{
 		ArrayList<Linea> listOfLines = new ArrayList<Linea>();
 
 		// Comenzamos a iterar la primera lista de archivos
 		for(int i = 0; i < archivosProgOri.size(); i++)
 		{
-			archivo myFile = archivosProgOri.get(i);
+			Archivo myFile = archivosProgOri.get(i);
 
 			// Comenzamos a iterar la segunda lista de archivos
 			for(int j = 0; j < archivosProgMod.size(); j++)
 			{
-				archivo myFileMod = archivosProgMod.get(j);
+				Archivo myFileMod = archivosProgMod.get(j);
 
 				// Si el nombre de un elemento de una lista coincide con la otra, se cargan en memoria
 				// y se envian a comparar
 				if(myFile.getNombre().equals(myFileMod.getNombre()))
 				{
-					diff myDiff = new diff();
+					Diff myDiff = new Diff();
 
 					// Guardamos el resultado de la comparacion en una lista de lineas
 					listOfLines = myDiff.comparar(cargarContenido(myFile.getRuta()), 

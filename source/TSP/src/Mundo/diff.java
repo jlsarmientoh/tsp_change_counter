@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class diff 
+public class Diff 
 {
 	private ArrayList<Linea> myLinea;
 

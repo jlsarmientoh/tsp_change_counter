@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-public class useComparador 
+public class UseComparador 
 {
 	/**Esté método sirve de interfaz para el programa comparador
 	 * @param args
@@ -78,7 +78,7 @@ public class useComparador
 		// Corresponde a la ruta donde se encuentra la versión modificada del programa a comparar 		
 		String rutaProgModificado =  JOptionPane.showInputDialog("Digite la ruta del programa sin modificar");*/
 
-		manejoArchivos myManejoArchivos = new manejoArchivos();
+		ManejoArchivos myManejoArchivos = new ManejoArchivos();
 		//myManejoArchivos.iniciarComparacion(rutaProgOriginal, rutaProgOriginal);
 		myManejoArchivos.iniciarComparacion(rutaProgOriginal, rutaProgModificado);
 

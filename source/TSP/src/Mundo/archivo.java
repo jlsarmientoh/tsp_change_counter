@@ -1,6 +1,6 @@
 package Mundo;
 
-public class archivo 
+public class Archivo 
 {
 	private String nombre;
 	private String ruta;
