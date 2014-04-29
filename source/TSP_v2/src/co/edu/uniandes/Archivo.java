@@ -12,7 +12,7 @@
  */
 
 
-package co.edu.uniandes;
+package Mundo;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -24,7 +24,7 @@ import java.util.Map;
 public class Archivo {
 	private String nombre;
 	private String ruta;
-	
+
 	/**
 	 * retorna el nombre del archivo
 	 * @return nombre del archivo
@@ -32,7 +32,7 @@ public class Archivo {
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	/**
 	 * actualiza el nombre del archivo
 	 * @param nombre el nuevo nombre del archivo
@@ -40,7 +40,7 @@ public class Archivo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	/**
 	 * retorna la ruta del archivo
 	 * @return ruta del archivo
@@ -48,8 +48,8 @@ public class Archivo {
 	public String getRuta() {
 		return ruta;
 	}
-	
-	
+
+
 	/**
 	 * actualiza la ruta del archivo
 	 * @param ruta nueva ruta para el archivo
@@ -71,7 +71,6 @@ public class Archivo {
 		ArrayList<Linea> linea=null;
 		Linea lineaAux=null;
 
-
 		// inicio el buffer de escritura del archivo de salida
 		// se guardara en una carpeta que esta en le raiz del proyecto que se llama repositorio
 		// el nombre del archivo debe terminar en .java
@@ -92,7 +91,7 @@ public class Archivo {
 						// si la linea es de tipo A
 						if(lineaAux.getTipo().equals("adicionada")){
 							// no se tiene en cuenta las lineas vacias
-							if(!lineaArchivo.getValue().toString().trim().equals("")){
+							if(!lineaAux.getContenido().trim().equals("")){
 								//escribo la etiqueta
 								outputFile.write("@Adicionada");
 								outputFile.newLine();
@@ -102,6 +101,7 @@ public class Archivo {
 							}
 						}
 						else{
+
 							// no se tiene en cuenta las lineas vacias
 							if(!lineaAux.getContenido().trim().equals("")){
 								// escribo la etiqueta
@@ -149,6 +149,7 @@ public class Archivo {
 		// a partir del numero de la linea
 		ArrayList<Linea> linea= new ArrayList<>();
 		for(int i=0; i< lineasModificadas.size() ; i++){
+
 			if(numLinea == lineasModificadas.get(i).getNumLinea()){
 				linea.add(lineasModificadas.get(i));
 			}

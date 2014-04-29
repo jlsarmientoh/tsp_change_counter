@@ -10,16 +10,16 @@
  * @version 2.0, 04/27/14
  * @since 1.0
  */
-package co.edu.uniandes;
+package Mundo;
 
 
 public class Linea {
 	private String tipo;
 	private String contenido;
 	private int numLinea;
-	
+
 	// TODO
-	
+
 	/**
 	 * constructor de la clase linea
 	 * @param tipo tipo de linea eliminada o adicionada
@@ -31,7 +31,7 @@ public class Linea {
 		this.contenido=contenido;
 		this.numLinea = numLinea;
 	}
-	
+
 	/**
 	 * retorna el tipo de la linea
 	 * @return tipo de linea
@@ -39,7 +39,7 @@ public class Linea {
 	public String getTipo(){
 		return tipo;
 	}
-	
+
 	/**
 	 * retorna el numero de la linea
 	 * @return numero de linea
@@ -47,7 +47,7 @@ public class Linea {
 	public int getNumLinea() {
 		return numLinea;
 	}
-	
+
 	/**
 	 * actualiza el numero de la linea
 	 * @param numLinea
@@ -55,7 +55,7 @@ public class Linea {
 	public void setNumLinea(int numLinea) {
 		this.numLinea = numLinea;
 	}
-	
+
 	/**
 	 * retorna el contenido de la linea
 	 * @return contenido de la linea
@@ -63,7 +63,7 @@ public class Linea {
 	public String getContenido() {
 		return contenido;
 	}
-	
+
 	/**
 	 * actualiza el contenido de la linea
 	 * @param contenido
@@ -71,5 +71,5 @@ public class Linea {
 	public void setContenido(String contenido) {
 		this.contenido = contenido;
 	}
-	
+
 }
