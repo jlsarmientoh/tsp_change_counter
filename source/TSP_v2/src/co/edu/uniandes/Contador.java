@@ -34,6 +34,7 @@ public class Contador
 	/**
 	 * <b>Pre:</b> Se tuvo que haber ingresado una ruta valida. 
 	 * Este método obtiene todas las clases que se encuentren en la ruta especificada.
+	 * @param Ruta del archivo
 	 */
 	public void obtenerClases(String p)
 	{
@@ -58,6 +59,7 @@ public class Contador
 	 * <b>Pre:</b> Se tuvo que haber ingresado una ruta valida.
 	 * <b>Pre:</b> En la ruta valida hay por lo menos un archivo .java.
 	 * Este método crea un nuevo nodo en la lista de clases.
+	 * @param Nombre de cada archivo
 	 */
 	private void crearNodo(String n)
 	{
