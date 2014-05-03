@@ -12,7 +12,7 @@
  */
 
 
-package co.edu.uniandes;
+package co.edu.uniandes.dummy.v2;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
