@@ -60,14 +60,14 @@ public class ManejoArchivos{
 		// Comenzamos a iterar sobre la lista de elementos encontrados en la ruta que se le paso al m�todo.
 		//@dsanchez
 		//se agrega if para valida cuando la lista llega vacia
-		if(files!=null){
+		if (files!=null){
 			
-			for(File f : files){
+			for (File f : files){
 				
 				myArchivo = new Archivo();
 
 				// Si el elemento es de tipo carpeta
-				if(f.isDirectory()){
+				if (f.isDirectory()){
 					
 					// De forma recursiva se llama al mismo m�todo pero esta vez con la ruta del elemento de tipo carpeta
 					ArrayList<Archivo> aux = buscarArchivos(f.getAbsolutePath());
@@ -76,13 +76,13 @@ public class ManejoArchivos{
 						archivos.add(aux.get(0));
 					}
 				}
-				else{
+				else {
 					
 					// Almacenamos la ruta del elemento de tipo archivo.
 					rutaArchivo = f.getPath();
 
 					// Buscamos solo aquellos elementos de tipo archivo que sean de java
-					if(rutaArchivo.endsWith(".java")){
+					if (rutaArchivo.endsWith(".java")){
 						
 						// Obtenemos s�lo el nombre del Archivo, sin la ruta en la cual se encuentra.
 						archivo = rutaArchivo.substring(posicion);					
@@ -115,11 +115,11 @@ public class ManejoArchivos{
 		ArrayList<Linea> listOfLines = new ArrayList<Linea>();
 
 		// Comenzamos a iterar la primera lista de archivos
-		for(int i = 0; i < archivosProgOri.size(); i++) {
+		for (int i = 0; i < archivosProgOri.size(); i++) {
 			Archivo myFile = archivosProgOri.get(i);
 
 			// Comenzamos a iterar la segunda lista de archivos
-			for(int j = 0; j < archivosProgMod.size(); j++) {
+			for (int j = 0; j < archivosProgMod.size(); j++) {
 				
 				Archivo myFileMod = archivosProgMod.get(j);
 
@@ -153,7 +153,7 @@ public class ManejoArchivos{
 		int key = 0;
 		try {
 			myScanner = new Scanner(myFile);
-			while(myScanner.hasNextLine()) {
+			while (myScanner.hasNextLine()) {
 				
 				String line = myScanner.nextLine();
 				myMap.put(key, line);

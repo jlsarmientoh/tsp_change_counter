@@ -36,33 +36,33 @@ public class Diff {
 		// La variable band sirve como bandera para identificar si hubo un error en buscarLineasAdicionadas
 		boolean band=false;
 		Map mapaArchivo=null;
-		if(map1!=null && map2!=null){
+		if (map1!=null && map2!=null){
 			myLinea = new ArrayList<Linea>();
 			band=buscarLineasAdicionadas(map1, map2);
-			if(band){	
+			if (band){	
 				band=buscarLineasEliminadas(map1, map2);
 			}
 
-			if(!band){
+			if (!band){
 				return null;
 			}
 
 		}
-		else{
+		else {
 			System.out.println("Los maps no pueden ser nulos");
 		}
 
-		if(map1.size()>map2.size()){
+		if (map1.size()>map2.size()){
 			mapaArchivo = map1;
 		}
-		else{
+		else {
 			mapaArchivo= map2;
 		}
 		//imprimirLista();
-		if(new Archivo().generarArchivoSalida(nombre, mapaArchivo, myLinea)){
+		if (new Archivo().generarArchivoSalida(nombre, mapaArchivo, myLinea)){
 			System.out.println("Archivo generado en el repositorio");
 		}
-		else{
+		else {
 			System.out.println("no se pude generar el archivo");
 		}
 		return myLinea;
@@ -89,7 +89,7 @@ public class Diff {
 
 	//Prueba local
 	public void imprimirLista(){
-		for(int i=0;i<myLinea.size();i++){
+		for (int i=0;i<myLinea.size();i++){
 			System.out.println("Linea");
 			System.out.println("tipo " + myLinea.get(i).getTipo());
 			System.out.println("name " + myLinea.get(i).getContenido());
@@ -131,7 +131,7 @@ public class Diff {
 					Map.Entry e2 = (Map.Entry)itOrig.next();
 
 					//realizamos la comparacion	
-					if(e.getValue().toString().equals(e2.getValue()))
+					if (e.getValue().toString().equals(e2.getValue()))
 					{
 						band=true;
 					}
@@ -140,7 +140,7 @@ public class Diff {
 
 				//si la bandera el false es porque no encontro pareja en el mapa origen
 				//por lo tanto es una linea adicionada
-				if(!band){
+				if (!band){
 					identificarAdicionadas(e.getValue().toString(), cont);
 				}
 				cont++;
@@ -189,7 +189,7 @@ public class Diff {
 					Map.Entry e2 = (Map.Entry)itMod.next();
 
 					//realizamos la comparacion	
-					if(e.getValue().toString().equals(e2.getValue())){
+					if (e.getValue().toString().equals(e2.getValue())){
 						band=true;
 					}
 
@@ -197,7 +197,7 @@ public class Diff {
 
 				//si la bandera el false es porque no encontro pareja en el mapa modificado
 				//por lo tanto es una linea eliminada
-				if(!band){
+				if (!band){
 					identificarEliminadas(e.getValue().toString(),cont);
 				}
 				// incremento el contador que hace referencia al numero de linea

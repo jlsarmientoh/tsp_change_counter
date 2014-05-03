@@ -45,7 +45,7 @@ public class UseComparador{
 			//Si no seleccionamos nada retornaremos No seleccion
 			 rutaProgOriginal = chooser.getSelectedFile().toString();
 		} 
-		else{
+		else {
 			System.out.println("No seleccion ");
 		}
 		
@@ -62,7 +62,7 @@ public class UseComparador{
 			//Si no seleccionamos nada retornaremos No seleccion
 			 rutaProgModificado = chooser.getSelectedFile().toString();
 		} 
-		else{
+		else {
 			System.out.println("No seleccion ");
 		}			
 		
@@ -75,10 +75,10 @@ public class UseComparador{
 
 		ManejoArchivos myManejoArchivos = new ManejoArchivos();
 
-		if((rutaProgOriginal != null) && (rutaProgModificado != null) ){
+		if ((rutaProgOriginal != null) && (rutaProgModificado != null) ){
 			myManejoArchivos.iniciarComparacion(rutaProgOriginal, rutaProgModificado);
 		}
-		else{
+		else {
 			System.out.println("No se seleccionó una/las ruta/s necesaria/s para el programa.");
 			System.out.println("Por favor vuelva a ejecutar el programa.");
 			System.exit(0);
@@ -101,10 +101,10 @@ public class UseComparador{
 		System.out.println("****************************************************");
 		System.out.println("Número de líneas adicionadas: ");
 		int contAdi = 0;
-		for(int i = 0; i < listaDeListas.size(); i++){
+		for (int i = 0; i < listaDeListas.size(); i++){
 			ArrayList<Linea> myListOfLines = listaDeListas.get(i);
 
-			for(int j = 0; j < myListOfLines.size(); j++){
+			for (int j = 0; j < myListOfLines.size(); j++){
 				Linea myLine = myListOfLines.get(j);
 				if(myLine.getTipo().equals("adicionada")){
 					contAdi++;
@@ -118,14 +118,14 @@ public class UseComparador{
 		System.out.println("****************************************************");
 		System.out.println("Número de líneas eliminadas: ");
 		int contElim = 0;
-		for(int i = 0; i < listaDeListas.size(); i++){
+		for (int i = 0; i < listaDeListas.size(); i++){
 			
 			ArrayList<Linea> myListOfLines = listaDeListas.get(i);
 
-			for(int j = 0; j < myListOfLines.size(); j++){
+			for (int j = 0; j < myListOfLines.size(); j++){
 				
 				Linea myLine = myListOfLines.get(j);
-				if(myLine.getTipo().equals("eliminada")){
+				if (myLine.getTipo().equals("eliminada")){
 					contElim++;
 				}
 			}			
@@ -144,7 +144,7 @@ public class UseComparador{
 		
 		System.out.println("Tamaño total en LOC del programa: " + myContador.totalLoc());
 		ArrayList<Clase> myList = myContador.getLista();			
-		for(int i = 0; i < myList.size(); i++){
+		for (int i = 0; i < myList.size(); i++){
 			Clase myClass = (Clase) myList.get(i);
 			System.out.println("Ruta y nombre de la clase: " + myClass.getNombre());
 			System.out.println("Tamaño en LOC de la clase: " + myClass.getLoc());			

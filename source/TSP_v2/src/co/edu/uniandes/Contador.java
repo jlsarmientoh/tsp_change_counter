@@ -45,7 +45,7 @@ public class Contador {
 			}
 		});	
 		
-		for(File javaFiles : files) {
+		for (File javaFiles : files) {
 			
 			String aux = javaFiles.toString();
 			//System.out.print(aux);
@@ -72,7 +72,7 @@ public class Contador {
 	public void contarLocClase() {
 		
 		int contLoc;
-		for(int i = 0; i < clases.size(); i++) {
+		for (int i = 0; i < clases.size(); i++) {
 			
 			contLoc = 0;
 			Clase myClass = (Clase) clases.get(i);
@@ -80,7 +80,7 @@ public class Contador {
 			try {
 				
 				myScanner = new Scanner(myFile);
-				while(myScanner.hasNextLine()) {
+				while (myScanner.hasNextLine()) {
 					
 					String aux = myScanner.nextLine();
 					aux = aux.trim();
@@ -110,7 +110,7 @@ public class Contador {
 	public void contarMetodos() {
 		
 		int contMet;
-		for(int i = 0; i < clases.size(); i++) {
+		for (int i = 0; i < clases.size(); i++) {
 			
 			contMet = 0;
 			Clase myClass = (Clase) clases.get(i);
@@ -119,20 +119,20 @@ public class Contador {
 			try {
 				
 				myScanner2 = new Scanner(myFile);				
-				while(myScanner2.hasNextLine()) {
+				while (myScanner2.hasNextLine()) {
 					
 					String aux = myScanner2.nextLine();
 					aux = aux.trim();
-					if((aux.startsWith("public")) || (aux.startsWith("private"))) {
+					if ((aux.startsWith("public")) || (aux.startsWith("private"))) {
 						
-						if(aux.endsWith(")")) {
+						if (aux.endsWith(")")) {
 							
 							contMet++;
 						}
 					}
 				}
 			}
-			catch(IOException e) {
+			catch (IOException e) {
 				
 				System.out.println("Se produjo el siguiente error " + e);
 			}
@@ -146,7 +146,7 @@ public class Contador {
 	public int totalLoc() {
 		
 		int totalLoc = 0;
-		for(int i = 0; i < clases.size(); i++) {
+		for (int i = 0; i < clases.size(); i++) {
 			
 			Clase myClass = (Clase) clases.get(i);
 			totalLoc += myClass.getLoc();
