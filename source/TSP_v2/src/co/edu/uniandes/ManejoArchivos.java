@@ -24,8 +24,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class ManejoArchivos 
-{
+public class ManejoArchivos{
+	
 	ArrayList<ArrayList> salida = new ArrayList<ArrayList>();
 
 	/**
@@ -34,8 +34,8 @@ public class ManejoArchivos
 	 * @param p Corresponde a una ruta en donde se desee buscar archivos .java
 	 * @return Retorna una lista con la ruta y el nombre de cada archivo encontrado en la ruta especificada.
 	 */
-	public ArrayList<Archivo> buscarArchivos(String p)
-	{	
+	public ArrayList<Archivo> buscarArchivos(String p){
+		
 		// Se crea el arreglo que tendr� los archivos.
 		ArrayList<Archivo> archivos = new ArrayList<Archivo>();
 
@@ -60,30 +60,30 @@ public class ManejoArchivos
 		// Comenzamos a iterar sobre la lista de elementos encontrados en la ruta que se le paso al m�todo.
 		//@dsanchez
 		//se agrega if para valida cuando la lista llega vacia
-		if(files!=null)
-		{
-			for(File f : files)
-			{
+		if(files!=null){
+			
+			for(File f : files){
+				
 				myArchivo = new Archivo();
 
 				// Si el elemento es de tipo carpeta
-				if(f.isDirectory())
-				{
+				if(f.isDirectory()){
+					
 					// De forma recursiva se llama al mismo m�todo pero esta vez con la ruta del elemento de tipo carpeta
 					ArrayList<Archivo> aux = buscarArchivos(f.getAbsolutePath());
-					for(int i = 0; i < aux.size(); i++)
-					{
+					for(int i = 0; i < aux.size(); i++){
+						
 						archivos.add(aux.get(0));
 					}
 				}
-				else
-				{
+				else{
+					
 					// Almacenamos la ruta del elemento de tipo archivo.
 					rutaArchivo = f.getPath();
 
 					// Buscamos solo aquellos elementos de tipo archivo que sean de java
-					if(rutaArchivo.endsWith(".java"))
-					{
+					if(rutaArchivo.endsWith(".java")){
+						
 						// Obtenemos s�lo el nombre del Archivo, sin la ruta en la cual se encuentra.
 						archivo = rutaArchivo.substring(posicion);					
 
@@ -95,8 +95,7 @@ public class ManejoArchivos
 				}
 			}
 		}
-		else 
-		{
+		else {
 			System.out.println("la ruta no contiene archivos...");
 		}
 
@@ -111,24 +110,23 @@ public class ManejoArchivos
 	 * @param archivosProgMod Corresponde a la lista de archivos que pertenecen al programa modificado.
 	 * @return Retorna una lista de lineas de todas las parejas que fueron comparadas por su contenido.
 	 */
-	public void compararListas(ArrayList<Archivo> archivosProgOri, ArrayList<Archivo> archivosProgMod)
-	{
+	public void compararListas(ArrayList<Archivo> archivosProgOri, ArrayList<Archivo> archivosProgMod) {
+		
 		ArrayList<Linea> listOfLines = new ArrayList<Linea>();
 
 		// Comenzamos a iterar la primera lista de archivos
-		for(int i = 0; i < archivosProgOri.size(); i++)
-		{
+		for(int i = 0; i < archivosProgOri.size(); i++) {
 			Archivo myFile = archivosProgOri.get(i);
 
 			// Comenzamos a iterar la segunda lista de archivos
-			for(int j = 0; j < archivosProgMod.size(); j++)
-			{
+			for(int j = 0; j < archivosProgMod.size(); j++) {
+				
 				Archivo myFileMod = archivosProgMod.get(j);
 
 				// Si el nombre de un elemento de una lista coincide con la otra, se cargan en memoria
 				// y se envian a comparar
-				if(myFile.getNombre().equals(myFileMod.getNombre()))
-				{
+				if(myFile.getNombre().equals(myFileMod.getNombre())) {
+					
 					Diff myDiff = new Diff();
 
 					// Guardamos el resultado de la comparacion en una lista de lineas
@@ -147,24 +145,23 @@ public class ManejoArchivos
 	 * mapa de java.
 	 * @return Retorna el mapa una vez carg� el contenido del archivo en �l.
 	 */
-	public Map<Integer, String> cargarContenido(String r)
-	{
+	public Map<Integer, String> cargarContenido(String r) {
+		
 		File myFile = new File(r);
 		Scanner myScanner;
 		Map<Integer, String> myMap = new TreeMap<Integer, String>();
 		int key = 0;
-		try
-		{
+		try {
 			myScanner = new Scanner(myFile);
-			while(myScanner.hasNextLine())
-			{
+			while(myScanner.hasNextLine()) {
+				
 				String line = myScanner.nextLine();
 				myMap.put(key, line);
 				key++;
 			}
 		}
-		catch (Exception e)
-		{
+		catch (Exception e) {
+			
 			System.out.println("Se presento el siguiente error " + e);
 		}		
 
@@ -178,8 +175,8 @@ public class ManejoArchivos
 	 * @param rutaProgOriginal Corresponde a la ruta del programa original
 	 * @param rutaProgModificado Corresponde a la ruta del programa modificado
 	 */
-	public void iniciarComparacion(String rutaProgOriginal, String rutaProgModificado)
-	{
+	public void iniciarComparacion(String rutaProgOriginal, String rutaProgModificado) {
+		
 		compararListas(buscarArchivos(rutaProgOriginal), 
 				buscarArchivos(rutaProgModificado));
 	}	
@@ -188,8 +185,8 @@ public class ManejoArchivos
 	 * Este m�todo retorna la lista de listas de l�neas
 	 * @return Lista de Listas de l�neas
 	 */
-	public ArrayList<ArrayList> getSalida()
-	{
+	public ArrayList<ArrayList> getSalida() {
+		
 		return salida;
 	}
 

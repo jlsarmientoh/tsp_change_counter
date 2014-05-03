@@ -20,16 +20,17 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-public class UseComparador 
-{
+public class UseComparador{
+	
 	/**Este m√©todo sirve de interfaz para el programa comparador
 	 * @param args
 	 */
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args){
+		
 		String rutaProgModificado=null;
 		String rutaProgOriginal = null;
 		//@dsanchez se agrega JfileChosser para seleccionar los archivos
+		
 		
 		// ruta programa origen
 		JFileChooser chooser = new JFileChooser();
@@ -40,16 +41,13 @@ public class UseComparador
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		chooser.setAcceptAllFileFilterUsed(false);
 
-		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) 
-		{
+		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 			//Si no seleccionamos nada retornaremos No seleccion
 			 rutaProgOriginal = chooser.getSelectedFile().toString();
 		} 
-		else 
-		{
+		else{
 			System.out.println("No seleccion ");
 		}
-		
 		
 		// ruta programa modificado
 		chooser = new JFileChooser();
@@ -60,16 +58,13 @@ public class UseComparador
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		chooser.setAcceptAllFileFilterUsed(false);
 
-		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) 
-		{
+		if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
 			//Si no seleccionamos nada retornaremos No seleccion
 			 rutaProgModificado = chooser.getSelectedFile().toString();
 		} 
-		else 
-		{
+		else{
 			System.out.println("No seleccion ");
-		}
-	
+		}			
 		
 		/*
 		// Corresponde a la ruta donde se encuentra la versi√≥n NO modificada del programa a comparar
@@ -79,8 +74,15 @@ public class UseComparador
 		String rutaProgModificado =  JOptionPane.showInputDialog("Digite la ruta del programa sin modificar");*/
 
 		ManejoArchivos myManejoArchivos = new ManejoArchivos();
-		//myManejoArchivos.iniciarComparacion(rutaProgOriginal, rutaProgOriginal);
-		myManejoArchivos.iniciarComparacion(rutaProgOriginal, rutaProgModificado);
+
+		if((rutaProgOriginal != null) && (rutaProgModificado != null) ){
+			myManejoArchivos.iniciarComparacion(rutaProgOriginal, rutaProgModificado);
+		}
+		else{
+			System.out.println("No se seleccionÛ una/las ruta/s necesaria/s para el programa.");
+			System.out.println("Por favor vuelva a ejecutar el programa.");
+			System.exit(0);
+		}		
 
 		// Enviamos la lista de listas para que sea impresa
 		generarSalida(myManejoArchivos.getSalida(), rutaProgModificado);
@@ -91,23 +93,20 @@ public class UseComparador
 	 * Este m√©todo se encarga de visualizar el contenido de la lista de listas de l√≠neas
 	 * @param salida Corresponde a la lista de listas de l√≠neas.
 	 */
-	public static void generarSalida(ArrayList salida, String ruta)
-	{
+	public static void generarSalida(ArrayList salida, String ruta){
+		
 		ArrayList<ArrayList> listaDeListas = salida;
 
 		// Imprimimos primero las l√≠neas adicionadas
 		System.out.println("****************************************************");
-		System.out.println("Estas son las lÌneas adicionadas: ");
+		System.out.println("N˙mero de lÌneas adicionadas: ");
 		int contAdi = 0;
-		for(int i = 0; i < listaDeListas.size(); i++)
-		{
+		for(int i = 0; i < listaDeListas.size(); i++){
 			ArrayList<Linea> myListOfLines = listaDeListas.get(i);
 
-			for(int j = 0; j < myListOfLines.size(); j++)
-			{
+			for(int j = 0; j < myListOfLines.size(); j++){
 				Linea myLine = myListOfLines.get(j);
-				if(myLine.getTipo().equals("adicionada"))
-				{
+				if(myLine.getTipo().equals("adicionada")){
 					contAdi++;
 				}
 			}			
@@ -117,17 +116,16 @@ public class UseComparador
 
 		// Ahora imprimimos las l√≠neas eliminadas
 		System.out.println("****************************************************");
-		System.out.println("Estas son las lÌneas eliminadas: ");
+		System.out.println("N˙mero de lÌneas eliminadas: ");
 		int contElim = 0;
-		for(int i = 0; i < listaDeListas.size(); i++)
-		{
+		for(int i = 0; i < listaDeListas.size(); i++){
+			
 			ArrayList<Linea> myListOfLines = listaDeListas.get(i);
 
-			for(int j = 0; j < myListOfLines.size(); j++)
-			{
+			for(int j = 0; j < myListOfLines.size(); j++){
+				
 				Linea myLine = myListOfLines.get(j);
-				if(myLine.getTipo().equals("eliminada"))
-				{
+				if(myLine.getTipo().equals("eliminada")){
 					contElim++;
 				}
 			}			
@@ -146,8 +144,7 @@ public class UseComparador
 		
 		System.out.println("TamaÒo total en LOC del programa: " + myContador.totalLoc());
 		ArrayList<Clase> myList = myContador.getLista();			
-		for(int i = 0; i < myList.size(); i++)
-		{
+		for(int i = 0; i < myList.size(); i++){
 			Clase myClass = (Clase) myList.get(i);
 			System.out.println("Ruta y nombre de la clase: " + myClass.getNombre());
 			System.out.println("TamaÒo en LOC de la clase: " + myClass.getLoc());			

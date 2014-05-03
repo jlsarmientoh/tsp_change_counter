@@ -33,6 +33,7 @@ public class Diff {
 	 */
 	public ArrayList<Linea> comparar(Map map1, Map map2, String nombre){
 
+		// La variable band sirve como bandera para identificar si hubo un error en buscarLineasAdicionadas
 		boolean band=false;
 		Map mapaArchivo=null;
 		if(map1!=null && map2!=null){
@@ -70,6 +71,7 @@ public class Diff {
 	/**
 	 * Metodo encargado de registar una linea eliminada
 	 * @param linea linea eliminada
+	 * @param numLinea número de la linea eliminada
 	 */
 	public void identificarEliminadas(String linea, int numLinea){
 
@@ -79,6 +81,7 @@ public class Diff {
 	/**
 	 * Metodo encargado de registar una linea adicionada
 	 * @param linea linea adicionada
+	 * @param numLinea número de la linea adicionada
 	 */
 	public void identificarAdicionadas(String linea, int numLinea){
 		myLinea.add(new Linea("adicionada",linea,numLinea));
@@ -110,6 +113,7 @@ public class Diff {
 
 		try
 		{
+			// Inicializamos el valor del iterador del programa modificado
 			itMod = map2.entrySet().iterator();
 
 			while (itMod.hasNext()) {

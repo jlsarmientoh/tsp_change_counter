@@ -25,8 +25,8 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Contador 
-{
+public class Contador {
+	
 	private ArrayList<Clase> clases = new ArrayList<Clase>();
 	private Scanner myScanner;
 	private Scanner myScanner2;
@@ -36,21 +36,19 @@ public class Contador
 	 * Este método obtiene todas las clases que se encuentren en la ruta especificada.
 	 * @param Ruta del archivo
 	 */
-	public void obtenerClases(String p)
-	{
+	public void obtenerClases(String p) {
+		
 		File path = new File(p);
-		File[] files = path.listFiles(new FilenameFilter() 
-		{			
-			public boolean accept(File path, String file) 
-			{
+		File[] files = path.listFiles(new FilenameFilter() {			
+			public boolean accept(File path, String file) {
 				return file.endsWith(".java");
 			}
 		});	
 		
-		for(File javaFiles : files)
-		{
+		for(File javaFiles : files) {
+			
 			String aux = javaFiles.toString();
-			System.out.print(aux);
+			//System.out.print(aux);
 			crearNodo(aux);
 		}		
 	}
@@ -61,8 +59,8 @@ public class Contador
 	 * Este método crea un nuevo nodo en la lista de clases.
 	 * @param Nombre de cada archivo
 	 */
-	private void crearNodo(String n)
-	{
+	private void crearNodo(String n) {
+		
 		Clase myClass = new Clase(n);
 		clases.add(myClass);
 	}
@@ -71,35 +69,34 @@ public class Contador
 	 * <b>Pre:</b> La lista tiene por lo menos un elemento.
 	 * Este método se encarga de contar LOC de  cada una de las clases de la lista.
 	 */	
-	public void contarLocClase()
-	{		
+	public void contarLocClase() {
+		
 		int contLoc;
-		for(int i = 0; i < clases.size(); i++)
-		{
+		for(int i = 0; i < clases.size(); i++) {
+			
 			contLoc = 0;
 			Clase myClass = (Clase) clases.get(i);
 			File myFile = new File(myClass.getNombre());			
-			try
-			{
+			try {
+				
 				myScanner = new Scanner(myFile);
-				while(myScanner.hasNextLine())
-				{
+				while(myScanner.hasNextLine()) {
+					
 					String aux = myScanner.nextLine();
 					aux = aux.trim();
-					if(! "".equals(aux) && ! "{".equals(aux) && ! "}".equals(aux))
-					{
-						if(! "/**".equals(aux) && ! "*/".equals(aux) && ! aux.startsWith("})"))
-						{
-							if(! "//".equals(aux) && ! aux.startsWith("//*"))
-							{
+					if((! "".equals(aux)) && (! "{".equals(aux)) && (! "}".equals(aux))) {
+						
+						if((! "/**".equals(aux)) && (! "*/".equals(aux)) && (! aux.startsWith("})"))) {
+							
+							if((! "//".equals(aux)) && (! aux.startsWith("//*"))) {
 								contLoc++;
 							}							
 						}						
 					}					
 				}
 			}
-			catch (IOException e)
-			{
+			catch (IOException e) {
+				
 				System.out.println("Se produjo el siguiente error");
 			}			
 			myClass.setLoc(contLoc);
@@ -110,33 +107,33 @@ public class Contador
 	 * <b>Pre:</b> La lista tiene por lo menos un elemento.
 	 * Este método se encarga de contar el número de métodos que tiene cada clase.
 	 */
-	public void contarMetodos()
-	{
+	public void contarMetodos() {
+		
 		int contMet;
-		for(int i = 0; i < clases.size(); i++)
-		{
+		for(int i = 0; i < clases.size(); i++) {
+			
 			contMet = 0;
 			Clase myClass = (Clase) clases.get(i);
 			File myFile = new File(myClass.getNombre());
 			
-			try
-			{
+			try {
+				
 				myScanner2 = new Scanner(myFile);				
-				while(myScanner2.hasNextLine())
-				{
+				while(myScanner2.hasNextLine()) {
+					
 					String aux = myScanner2.nextLine();
 					aux = aux.trim();
-					if(aux.startsWith("public") || aux.startsWith("private"))
-					{
-						if(aux.endsWith(")"))
-						{
+					if((aux.startsWith("public")) || (aux.startsWith("private"))) {
+						
+						if(aux.endsWith(")")) {
+							
 							contMet++;
 						}
 					}
 				}
 			}
-			catch(IOException e)
-			{
+			catch(IOException e) {
+				
 				System.out.println("Se produjo el siguiente error " + e);
 			}
 			myClass.setNumMet(contMet);
@@ -146,11 +143,11 @@ public class Contador
 	/**
 	 * Este método se encarga de contar el total de líneas que tiene el programa.
 	 */
-	public int totalLoc()
-	{
+	public int totalLoc() {
+		
 		int totalLoc = 0;
-		for(int i = 0; i < clases.size(); i++)
-		{
+		for(int i = 0; i < clases.size(); i++) {
+			
 			Clase myClass = (Clase) clases.get(i);
 			totalLoc += myClass.getLoc();
 		}
@@ -161,8 +158,8 @@ public class Contador
 	/**
 	 * Este método retorna la lista de clases.
 	 */
-	public ArrayList<Clase> getLista()
-	{		
+	public ArrayList<Clase> getLista() {
+		
 		return clases;
 	}
 }
