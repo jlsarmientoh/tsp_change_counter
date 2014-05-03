@@ -10,7 +10,7 @@
  * @version 2.0, 04/27/14
  * @since 1.0
  */
-package Mundo;
+package co.edu.uniandes;
 
 
 public class Linea {

@@ -12,7 +12,7 @@
  */
 
 
-package Mundo;
+package co.edu.uniandes;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

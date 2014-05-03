@@ -11,7 +11,7 @@
  * @since 1.0
  */
 
-package Mundo;
+package co.edu.uniandes;
 
 
 import java.util.ArrayList;
