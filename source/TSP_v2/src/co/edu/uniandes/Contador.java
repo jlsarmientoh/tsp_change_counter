@@ -38,7 +38,7 @@ public class Contador {
 	 */
 	public void obtenerClases(String p) {
 		
-		File path = new File(p);
+		/*File path = new File(p);
 		File[] files = path.listFiles(new FilenameFilter() {			
 			public boolean accept(File path, String file) {
 				return file.endsWith(".java");
@@ -50,7 +50,43 @@ public class Contador {
 			String aux = javaFiles.toString();
 			//System.out.print(aux);
 			crearNodo(aux);
-		}		
+		}*/
+		
+		String aux = "";
+		
+		File path = new File(p);		
+		File[] files = path.listFiles();
+		int posicion = p.length() + 1;
+		
+		if (files!=null){
+			
+			for (File f : files){				
+
+				// Si el elemento es de tipo carpeta
+				if (f.isDirectory()){
+					
+					// De forma recursiva se llama al mismo m�todo pero esta vez con la ruta del elemento de tipo carpeta
+					obtenerClases(f.getAbsolutePath());					
+				}
+				else {
+					
+					// Almacenamos la ruta del elemento de tipo archivo.
+					aux = f.getPath();
+
+					// Buscamos solo aquellos elementos de tipo archivo que sean de java
+					if (aux.endsWith(".java")){
+						
+						// Creamos un nodo con el nombre del Archivo, sin la ruta en la cual se encuentra.
+						crearNodo(aux);					
+					}				
+				}
+			}
+		}
+		else {
+			System.out.println("la ruta no contiene archivos...");
+		}
+		
+		
 	}
 	
 	/**
