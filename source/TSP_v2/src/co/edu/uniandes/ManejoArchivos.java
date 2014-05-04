@@ -73,7 +73,7 @@ public class ManejoArchivos{
 					ArrayList<Archivo> aux = buscarArchivos(f.getAbsolutePath());
 					for(int i = 0; i < aux.size(); i++){
 						
-						archivos.add(aux.get(0));
+						archivos.add(aux.get(i));
 					}
 				}
 				else {
