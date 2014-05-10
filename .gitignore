@@ -1,3 +1,3 @@
 source/.metadata/**
 source/RemoteSystemsTempFiles/**
-*.class
+.class
