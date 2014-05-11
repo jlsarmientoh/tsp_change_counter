@@ -11,9 +11,6 @@
  * @since 1.0
  */
 
-@Adicionada
-package co.edu.uniandes.dummy.v1;
-@Eliminada
 package co.edu.uniandes.dummy.v2;
 
 
